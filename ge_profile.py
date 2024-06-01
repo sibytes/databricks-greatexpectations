@@ -30,6 +30,18 @@ df = spark.sql(f"select * from {db}.{table}")
 # COMMAND ----------
 
 expectation_suite, validation_result = BasicDatasetProfiler.profile(SparkDFDataset(df))
+
+
+# COMMAND ----------
+
+
+
+# COMMAND ----------
+
+validation_result
+
+# COMMAND ----------
+
 document_model = ProfilingResultsPageRenderer().render(validation_result)
 displayHTML(DefaultJinjaPageView().render(document_model))
 
